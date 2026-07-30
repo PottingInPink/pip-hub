@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #FBF5EE;
+  --rose: #A0635A;
+  --text: #1A1A1A;
+  --light-gray: #f0ede8;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Menu View */
+.menu-container {
+  padding: 24px 16px;
+  max-width: 100%;
+}
+
+.menu-title {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.menu-button {
+  padding: 20px 16px;
+  background: white;
+  border: 2px solid var(--light-gray);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.menu-button:active {
+  background-color: var(--rose);
+  color: white;
+  border-color: var(--rose);
+  transform: scale(0.98);
+}
+
+/* Log View */
+.log-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--bg);
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: white;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+/* Input Section */
+.input-section {
+  padding: 16px;
+  background: white;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.toggle {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid var(--light-gray);
+  background: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle.active {
+  background-color: var(--rose);
+  color: white;
+  border-color: var(--rose);
+}
+
+/* Voice Input */
+.voice-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voice-button {
+  padding: 16px;
+  background-color: var(--rose);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+.voice-button.listening {
+  background-color: #d97a71;
+  animation: pulse 0.6s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.voice-status {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  min-height: 20px;
+}
+
+.voice-transcript {
+  background-color: var(--light-gray);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  min-height: 40px;
+  word-wrap: break-word;
+}
+
+/* Text Input */
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text-input {
+  padding: 12px;
+  border: 2px solid var(--light-gray);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  resize: none;
+  min-height: 60px;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--rose);
+}
+
+.submit-button {
+  padding: 12px;
+  background-color: var(--rose);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* Log Viewer */
+.log-viewer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.log-entry {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid var(--rose);
+}
+
+.entry-timestamp {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.entry-text {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.empty-state {
+  text-align: center;
+  color: #999;
+  padding: 32px 16px;
+  font-size: 14px;
+}
+
+/* PWA Installable */
+@media (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
