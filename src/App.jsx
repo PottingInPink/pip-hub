@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, addDoc, query, orderBy, getDocs } from 'firebase/firestore'
 import './App.css'
-import Menu from './components/Menu'
-import VoiceInput from './components/VoiceInput'
-import TextInput from './components/TextInput'
-import LogViewer from './components/LogViewer'
+import Menu from './Menu'
+import VoiceInput from './VoiceInput'
+import TextInput from './TextInput'
+import LogViewer from './LogViewer'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD-KM6IAOEtrKoQg0kdjxF9wTNPRS975kg",
